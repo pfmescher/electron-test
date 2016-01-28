@@ -8,20 +8,34 @@
 
     <script src="vendor/electron_boilerplate/context_menu.js"></script>
     <script src="vendor/electron_boilerplate/external_links.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src='vendor/jquery/dist/jquery.min.js' onload="window.$ = window.jQuery = module.exports;"></script>
 
-    <script src="app.js"></script>
 </head>
 <body>
 
     <div class="container">
-        <h1 id="greet"></h1>
-        <p class="subtitle">
-            Welcome to <a href="http://electron.atom.io" class="js-external-link">Electron</a> app running on this magnificent <strong id="platform-info"></strong> machine.
-        </p>
-        <p class="subtitle">
-            You are in <strong id="env-name"></strong> environment.
-        </p>
+        <div id="video-demo">
+            <span class="btn video-demo">Probar la cámara</span>
+            <div class="contentarea">
+                <div class="camera">
+                    <video id="video">Video stream not available.</video>
+                    <button id="startbutton">Take photo</button>
+                </div>
+                <canvas id="canvas">
+                </canvas>
+                <div class="output">
+                    <img id="photo" alt="The screen capture will appear in this box.">
+                </div>
+            </div>
+        </div>
+        <div id="gps-demo">
+            <span class="btn gps-demo">Probar el GPS</span>
+            <article>
+                <p>Buscando tu ubicación: <span id="status">checking...</span></p>
+            </article>
+        </div>
     </div>
-
+    <script src="app.js"></script>
 </body>
 </html>
