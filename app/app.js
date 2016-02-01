@@ -135,7 +135,7 @@ function gpsDemo() {
 
         s.innerHTML = "te encontramos!";
         s.className = 'success';
-
+        /*
         var mapcanvas = document.createElement('div');
         mapcanvas.id = 'mapcanvas';
         mapcanvas.style.height = '400px';
@@ -158,13 +158,25 @@ function gpsDemo() {
             map: map,
             title:"Estas acá! (dentro de un radio de "+position.coords.accuracy+" metros)"
         });
+        */
+        var table = jQuery("<table><tr><th>Latitude</th><th>Longitude</th><th>Accuracy</th></tr></table>");
+        var row = jQuery("<tr></tr>");
+
+        row.append("<td>" + position.coords.latitude + "</td>");
+        row.append("<td>" + position.coords.longitude + "</td>");
+        row.append("<td>" + position.coords.accuracy + " m</td>");
+
+        table.append(row);
+
+        jQuery("#gps-demo .raw").append(table);
+
     }
 
     function error(msg) {
         var s = document.querySelector('#status');
         s.innerHTML = typeof msg == 'string' ? msg : "hubo un problema";
         s.className = 'fail';
-
+        debugger;
         // console.log(arguments);
     }
 
